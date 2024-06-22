@@ -19,34 +19,51 @@
 // console.log(repeat([8, 9, 5, 8, 2]))
 
 // բ) այն տարրերի քանակը, որոնք զանգվածում հանդիպում են ճիշտ 1 անգամ: 
- 
-// function oneOnly(arr){
+
+// function f(arr) {
+//     let obj = {}
 //     let count = 0;
-//     for(let i = 0; i < arr.length; i++){
-//         if(arr[i] !== arr[i]){
-//             count++
-//             console.log(true)
+//     for (let i = 0; i < arr.length; i++){
+//         if (obj[arr[i]] === undefined) {
+//           obj[arr[i]] = 1
+//         }else {
+//             obj[arr[i]]++
 //         }
 //     }
-//     console.log(false)
+//     for (let key in obj){
+//         if(obj[key] === 1){
+//             count++
+//         }
+//     }
+//     return count
 // }
-// console.log(oneOnly([2, 8, 1, 2, 9, 4]))
+// console.log(f([2,3,4,5,2,4,5,7,8]))
 
-function f(arr) {
-    let obj = {}
-    let count = 0;
-    for (let i = 0; i < arr.length; i++){
-        if (obj[arr[i]] === undefined) {
-          obj[arr[i]] = 1
-        }else {
-            obj[arr[i]]++
-        }
+
+// 9. Արտածել տրված [a,b] միջակայքին պատկանող դրական ամբողջ սիմետրիկ թվերի միջին թվաբանականը: 
+
+
+function f(n) {
+    let str = n + "";
+    let str1 = "";
+    for(let i = 0; i < str.length; i++){
+        str1 = str[i] + str1
     }
-    for (let key in obj){
-        if(obj[key] === 1){
-            count++
-        }
+    if(str1 == str){
+        return true
     }
-    return count
+    return false
 }
-console.log(f([2,3,4,5,2,4,5,7,8]))
+
+let arr = [];
+for(let i = -65; i <= 403; i++){
+    if(i > 0 && f(i) == true){
+        arr.push(i)
+    }
+}
+let sum = 0;
+for(let i = 0; i < arr.length; i++){
+    sum += arr[i]
+}
+let mijin = sum /arr.length
+console.log(mijin)
