@@ -35,7 +35,7 @@
 function f(arr) {
     let obj = {}
     let count = 0;
-    for (let i = 0; i = arr.length; i++){
+    for (let i = 0; i < arr.length; i++){
         if (obj[arr[i]] === undefined) {
           obj[arr[i]] = 1
         }else {
@@ -49,5 +49,4 @@ function f(arr) {
     }
     return count
 }
-
 console.log(f([2,3,4,5,2,4,5,7,8]))
